@@ -1,0 +1,41 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.6, pytest-7.3.1, pluggy-1.0.0 -- /home/alves/.pyenv/versions/3.10.6/envs/taxifare-env/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/alves/code/deyvisong/data-model-lifecycle/tests
+configfile: pytest_kitt.ini
+plugins: anyio-3.7.0
+collecting ... collected 6 items / 1 error
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting lifecycle/test_prefect.py __________________
+tests/lifecycle/test_prefect.py:6: in <module>
+    from taxifare.interface.workflow import *
+taxifare/interface/workflow.py:30: in <module>
+    def train_flow():
+../../../.pyenv/versions/3.10.6/envs/taxifare-env/lib/python3.10/site-packages/prefect/flows.py:643: in flow
+    Flow(
+../../../.pyenv/versions/3.10.6/envs/taxifare-env/lib/python3.10/site-packages/prefect/context.py:176: in __register_init__
+    __init__(__self__, *args, **kwargs)
+../../../.pyenv/versions/3.10.6/envs/taxifare-env/lib/python3.10/site-packages/prefect/flows.py:144: in __init__
+    raise_on_invalid_name(name)
+../../../.pyenv/versions/3.10.6/envs/taxifare-env/lib/python3.10/site-packages/prefect/server/schemas/core.py:46: in raise_on_invalid_name
+    raise InvalidNameError(
+E   prefect.exceptions.InvalidNameError: Name 'taxifare_lifecycle_<user.github_nickname>' contains an invalid character. Must not contain any of: ['/', '%', '&', '>', '<'].
+------------------------------- Captured stdout --------------------------------
+[34m
+Loading TensorFlow...[0m
+
+✅ TensorFlow loaded (1.56s)
+------------------------------- Captured stderr --------------------------------
+2023-05-31 15:51:36.748294: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-31 15:51:36.876723: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2023-05-31 15:51:36.876748: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2023-05-31 15:51:36.902892: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-05-31 15:51:37.676999: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2023-05-31 15:51:37.677073: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2023-05-31 15:51:37.677081: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+=========================== short test summary info ============================
+ERROR tests/lifecycle/test_prefect.py - prefect.exceptions.InvalidNameError: ...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 6.03s ===============================
